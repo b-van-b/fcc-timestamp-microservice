@@ -21,7 +21,7 @@ app.get("/", function (req, res) {
 
 // your first API endpoint... 
 app.get("/api/:time", function (req, res) {
-  console.log(JSON.stringify(req.query.time));
+  console.log(JSON.stringify(req.params.time));
   res.json({greeting: 'hello API'});
 });
 
