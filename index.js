@@ -18,8 +18,14 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+// return current date/time in unix/utc time
+app.get("/api", (req, res)=>{
+  console.log('new date requested');
+  const date = new Date(); // now
+  res.json({unix: date.getTime(), utc: date.toUTCString()});
+});
 
-// your first API endpoint... 
+// accept date queries and return unix/utc time 
 app.get("/api/:date", function (req, res) {
   console.log("Incoming: /api/"+req.params.date);
   const query = req.params.date;
